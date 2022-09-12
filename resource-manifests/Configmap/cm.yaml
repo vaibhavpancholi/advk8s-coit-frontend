@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coit-frontend-config
+data:
+  JAVA_URL: http://coit-backend2
+  python_url: http://coit-backend2
+  sms_provider: http://api.me.sms.com
+  username: provideruser
+  password: mypassword
+  api-key: afafafadsfdasfds

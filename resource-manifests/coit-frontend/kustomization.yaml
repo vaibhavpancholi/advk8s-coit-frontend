@@ -14,17 +14,17 @@ patches:
     kind: Deployment
     name: coit-frontend
 
-namePrefix: customer1-
-nameSuffix: -myapp
+# namePrefix: customer1-
+# nameSuffix: -myapp
 commonLabels:
   customer: customer1 
   location: mumbai
   managed-by: kustomize
 
 images:
-  - newName: coitlearning/coit-frontend
-    newTag: v3
-    name: coitlearning/coit-frontend
+  - newName: chittiinfo/advk8s-coit-frontend
+    newTag: v1
+    name: chittiinfo/advk8s-coit-frontend
 
 configMapGenerator:
 - name: coit-frontend-config
