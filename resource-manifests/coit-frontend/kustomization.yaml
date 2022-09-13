@@ -5,6 +5,7 @@ resources:
   - coit-frontend-deployment.yaml
   - service-coit-frontend-lb.yaml
   - coit-frontend-ingress.yaml
+  - hpa-coit-frontend.yaml
 
 patches:
 - path: coit-frontend-patch.yaml
