@@ -7,13 +7,13 @@ resources:
  # - coit-frontend-ingress.yaml
   - hpa-coit-frontend.yaml
 
-patches:
-- path: coit-frontend-patch.yaml
-  target:
-    group: apps
-    version: v1
-    kind: Deployment
-    name: coit-frontend
+# patches:
+# - path: coit-frontend-patch.yaml
+#   target:
+#     group: apps
+#     version: v1
+#     kind: Deployment
+#     name: coit-frontend
 
 # namePrefix: customer1-
 # nameSuffix: -myapp
@@ -22,23 +22,23 @@ commonLabels:
   location: mumbai
   managed-by: kustomize
 
-images:
-  - newName: chittiinfo/advk8s-coit-frontend
-    newTag: v1
-    name: chittiinfo/advk8s-coit-frontend
+# images:
+#   - newName: chittiinfo/advk8s-coit-frontend
+#     newTag: v1
+#     name: chittiinfo/advk8s-coit-frontend
 
-configMapGenerator:
-- name: coit-frontend-config
-  literals:
-  - JAVA_HOME=/opt/java/jdk
-  - JAVA_TOOL_OPTIONS=-agentlib:hprof
-  - JAVA_URL="coit-backend1:5000"
-- name: coit-frontend-props
-  files:
-  - config.properties
-  - provider.properties
-- name: values-from-props
-  envs:
-  - config.properties
-  - provider.properties
+# configMapGenerator:
+# - name: coit-frontend-config
+#   literals:
+#   - JAVA_HOME=/opt/java/jdk
+#   - JAVA_TOOL_OPTIONS=-agentlib:hprof
+#   - JAVA_URL="coit-backend1:5000"
+# - name: coit-frontend-props
+#   files:
+#   - config.properties
+#   - provider.properties
+# - name: values-from-props
+#   envs:
+#   - config.properties
+#   - provider.properties
 
