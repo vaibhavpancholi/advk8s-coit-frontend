@@ -1,0 +1,88 @@
+node('built-in')
+
+{
+
+stage('Continuous Download') 
+   
+	 {
+	
+    git branch: 'dev', url: 'https://github.com/Chittiinfo/advk8s-coit-frontend'
+    
+	}
+	
+stage('Roles Deployment') 
+   
+	 {
+	
+	sh '''cd resource-manifests/roles
+
+echo "####### Deploying Roles manifest files into k8s #######"
+
+kubectl apply -f .
+'''
+	}
+
+stage('PVC Deployment') 
+   
+	 {
+	
+	sh '''cd resource-manifests/pvc
+
+echo "####### Deploying PVC manifest files into k8s #######"
+
+kubectl apply -f .
+'''
+	}
+
+stage('issuers Deployment') 
+   
+	 {
+	
+	sh '''cd resource-manifests/issuers
+
+echo "####### Deploying issuers manifest files into k8s #######"
+
+kubectl apply -f .
+'''
+	}
+
+stage('configmap Deployment') 
+   
+	 {
+	
+	sh '''cd resource-manifests/configmap
+
+echo "####### Deploying Config manifest files into k8s #######"
+
+kubectl apply -f .
+
+'''
+	}
+
+stage('coit-frontend Deployment') 
+   
+	 {
+	
+	sh '''cd resource-manifests/coit-frontend
+
+echo "####### Deploying application deployement,service and HPA manifest files with Kustomize #######"
+
+kubectl apply -k .
+
+'''
+	}
+
+stage('ingress Deployment') 
+   
+	 {
+	
+	sh '''cd resource-manifests/ingress
+
+echo "####### Deploying application Ingress manifest file #######"
+
+kubectl apply -f .
+
+'''
+	}
+
+}
