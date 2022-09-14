@@ -21,7 +21,7 @@ spec:
         app: coit-frontend                                  # 6
         app.kubernetes.io/name: coit-frontend
     spec:
-      serviceAccountName: coit-frontend
+      #serviceAccountName: coit-frontend
       volumes:
         - name: nginx-root
           persistentVolumeClaim:
