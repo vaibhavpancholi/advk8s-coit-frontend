@@ -55,7 +55,6 @@ stage('configmap Deployment')
 echo "####### Deploying Config manifest files into k8s #######"
 
 kubectl apply -f .
-
 '''
 	}
 
@@ -68,7 +67,6 @@ stage('coit-frontend Deployment')
 echo "####### Deploying application deployement,service and HPA manifest files with Kustomize #######"
 
 kubectl apply -k .
-
 '''
 	}
 
