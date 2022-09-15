@@ -21,7 +21,7 @@ spec:
         app: coit-frontend                                  # 6
         app.kubernetes.io/name: coit-frontend
     spec:
-      #serviceAccountName: coit-frontend
+      serviceAccountName: coit-frontend
       volumes:
         - name: nginx-root
           persistentVolumeClaim:
@@ -30,8 +30,8 @@ spec:
           persistentVolumeClaim:
             claimName: coit-frontend-fast  
       containers:
-        #- image: chittiinfo/advk8s-coit-frontend:v1
-        - image: coitlearning/coit-frontend:v21
+        - image: chittiinfo/advk8s-coit-frontend:v1
+        # image: coitlearning/coit-frontend:v21
           imagePullPolicy: IfNotPresent                         # 7
           name: coit-frontend
           ports:
@@ -67,9 +67,9 @@ spec:
           #         name: values-from-props
           #         key: sms_provider_api
 
-          volumeMounts:
-            - mountPath: /usr/share/nginx/html
-              name: nginx-root
-            - mountPath: /var/lib/sql
-              name: datastore
+          # volumeMounts:
+          #   - mountPath: /usr/share/nginx/html
+          #     name: nginx-root
+          #   - mountPath: /var/lib/sql
+          #     name: datastore
   

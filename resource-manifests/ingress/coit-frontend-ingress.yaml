@@ -12,13 +12,13 @@ spec:
     - "frontend.chitti.info"
     secretName: frontend.chitti.info
   rules:
-  - host: "frontend.chitti.info"
+  - host: frontend.chitti.info
     http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
+      - backend:
           service:
             name: coit-frontend-lb
             port:
               number: 80
+        path: /
+        pathType: Prefix
