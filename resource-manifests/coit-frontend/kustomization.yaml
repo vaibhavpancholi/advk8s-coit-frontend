@@ -17,10 +17,10 @@ resources:
 
 # namePrefix: customer1-
 # nameSuffix: -myapp
-commonLabels:
-  customer: customer1 
-  location: mumbai
-  managed-by: kustomize
+# commonLabels:
+#   customer: customer1 
+#   location: mumbai
+#   managed-by: kustomize
 
 # images:
 #   - newName: chittiinfo/advk8s-coit-frontend
