@@ -1,24 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend-ingress
+  name: coit-frontend
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - "frontend.chitti.info"
-    secretName: frontend.chitti.info
   rules:
-  - host: frontend.chitti.info
-    http:
+  - http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
             name: coit-frontend-lb
             port:
               number: 80
-        path: /
-        pathType: Prefix
