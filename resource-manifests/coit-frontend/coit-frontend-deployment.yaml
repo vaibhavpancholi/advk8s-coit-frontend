@@ -30,7 +30,7 @@ spec:
           persistentVolumeClaim:
             claimName: coit-frontend-fast  
       containers:
-        - image: chittiinfo/advk8s-coit-frontend:v1
+        - image: vaibhavpancholi2/coit-frontend-kubernetes:v1
         # image: coitlearning/coit-frontend:v21
           imagePullPolicy: IfNotPresent                         # 7
           name: coit-frontend
